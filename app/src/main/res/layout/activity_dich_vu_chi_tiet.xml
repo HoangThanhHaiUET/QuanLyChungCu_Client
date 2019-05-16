@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toobardichvuchitiet"
+        app:title="Chi Tiết Dịch Vụ"
+        app:titleTextColor="@color/colorText"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark2"
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="140dp"
+            android:layout_height="130dp"
+            android:src="@drawable/profile"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+
+        <TextView
+            android:textColor="@color/colorText"
+            android:textSize="10dp"
+            android:text="Tên Dịch Vụ :"
+            android:layout_width="80dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:id="@+id/txtNameDV"
+            android:text="Đang Tải"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <TextView
+            android:textColor="@color/colorText"
+            android:textSize="10dp"
+            android:text="Kiểu Dịch Vụ :"
+            android:layout_width="80dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:id="@+id/txttypeDV"
+            android:text="Đang tải"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <TextView
+            android:textColor="@color/colorText"
+            android:textSize="10dp"
+            android:text="Thanh Toán Theo:"
+            android:layout_width="80dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:id="@+id/txtpayment"
+            android:text="Đang tải"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:text="Giá :"
+            android:textColor="@color/colorText"
+            android:textSize="10dp" />
+        <TextView
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:id="@+id/txtprice"
+            android:text="Đang Tải"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+        <TextView
+            android:textColor="@color/colorText"
+            android:textSize="10dp"
+            android:text="Chi Tiết :"
+            android:layout_width="80dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:textColor="@color/colorText"
+            android:gravity="center"
+            android:id="@+id/txtdescription"
+            android:text="Đang Tải"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
