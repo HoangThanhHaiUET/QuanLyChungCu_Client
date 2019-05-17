@@ -19,14 +19,18 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bb.quanlycc.Adapter.newsAdapter;
 import com.bb.quanlycc.Adapter.listAdapter;
 import com.bb.quanlycc.Model.Account;
+import com.bb.quanlycc.Model.DSThanhtoan;
+import com.bb.quanlycc.Model.config;
 import com.bb.quanlycc.Model.danhsach;
 import com.bb.quanlycc.Model.news;
 import com.squareup.picasso.Picasso;
@@ -54,7 +58,7 @@ public class HomeActivity extends AppCompatActivity  {
     String Title="";
     String Status="";
     String date ="";
-    String url ="http://10.0.3.2/server/getspmoinhat.php";
+
 
     ArrayList<news>  mangnews;
     ArrayList<danhsach> manglist ;
@@ -71,7 +75,7 @@ public class HomeActivity extends AppCompatActivity  {
         Anhxa();
         ActionBar();
         ActionFlipper();
-        GetThongtin();
+        GetDSThongBao();
         CathOnNewsListView();
         LoadTT();
 
@@ -132,39 +136,81 @@ public class HomeActivity extends AppCompatActivity  {
         });
     }
 
-    private void GetThongtin() {
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                if(response != null){
-                    for(int i =0 ; i <response.length();i++){
-                        try {
+//    private void GetThongtin() {
+//        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+//            @Override
+//            public void onResponse(JSONArray response) {
+//                if(response != null){
+//                    for(int i =0 ; i <response.length();i++){
+//                        try {
+//                            news news = new news();
+//                            JSONObject jsonObject = response.getJSONObject(i);
+//                            news.setID( jsonObject.getInt("id"));
+//                            news.setTitle( jsonObject.getString("Title"));
+//                            news.setStatus( jsonObject.getString("Status"));
+//                            news.setDate( jsonObject.getString("date"));
+//                            mangnews.add(news );
+//                            newsAdapter.notifyDataSetChanged(); //update ban ve
+//
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        requestQueue.add(jsonArrayRequest);
+//
+//    }
+public void GetDSThongBao(){
+    RequestQueue requestQueue = Volley.newRequestQueue(this);
+    String url = config.getUrl()+"/api/notification";
+    StringRequest stringRequest =new StringRequest(Request.Method.GET, url,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Log.d("response datauser", response);
+                    try {
+
+                        JSONObject jsonObject = new JSONObject(response);
+                        JSONArray databill = jsonObject.getJSONArray("data");
+
+                        for(int i = 0 ; i < databill.length();i++){
                             news news = new news();
-                            JSONObject jsonObject = response.getJSONObject(i);
-                            news.setID( jsonObject.getInt("id"));
-                            news.setTitle( jsonObject.getString("Title"));
-                            news.setStatus( jsonObject.getString("Status"));
-                            news.setDate( jsonObject.getString("date"));
-                            mangnews.add(news );
-                            newsAdapter.notifyDataSetChanged(); //update ban ve
+                            JSONObject bill = (JSONObject) databill.get(i);
+                            news.setID(bill.getString("id"));
+                            news.setTitle(bill.getString("title"));
+                            JSONObject link = bill.getJSONObject("href");
+                            news.setStatus(link.getString("notification_show"));
+                            mangnews.add(news);
+                            newsAdapter.notifyDataSetChanged();
 
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+                        // apartmentid = jsonObjectdatauser.getString("id");
+                        /**Set value*/
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-            }
-        });
-        requestQueue.add(jsonArrayRequest);
+            }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
 
-    }
+        }
+    });
+    requestQueue.add(stringRequest);
+}
+
 
     private void ActionBar() {
         setSupportActionBar(toolbar);

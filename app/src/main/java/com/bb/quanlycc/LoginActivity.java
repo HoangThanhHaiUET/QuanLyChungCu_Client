@@ -18,6 +18,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bb.quanlycc.Model.Account;
+import com.bb.quanlycc.Model.config;
 
 
 import org.json.JSONArray;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
      * URL : URL_LOGIN
      * param : KEY_USERNAME KEY_PASSWORD
      */
-    public static final String URL_LOGIN = "http://10.0.3.2:8000/api/user/login";
+    public static final String URL_LOGIN = config.getUrl()+"/api/user/login";
     public static final String KEY_USERNAME = "email";
     public static final String KEY_PASSWORD = "password";
 

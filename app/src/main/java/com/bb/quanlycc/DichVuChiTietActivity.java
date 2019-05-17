@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bb.quanlycc.Model.config;
 import com.bb.quanlycc.Model.danhsach;
 import com.bb.quanlycc.Model.news;
 
@@ -45,7 +46,7 @@ public class DichVuChiTietActivity extends AppCompatActivity {
     }
     public void GetDichVuChiTiet(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "http://10.0.3.2:8000/api/service/"+a.getId();
+        String url = config.getUrl()+"/api/service/"+a.getId();
         StringRequest stringRequest =new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override

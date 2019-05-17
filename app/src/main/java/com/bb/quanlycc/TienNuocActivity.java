@@ -19,6 +19,7 @@ import com.bb.quanlycc.Adapter.ThanhtoanAdapter;
 import com.bb.quanlycc.Model.Account;
 import com.bb.quanlycc.Model.DSThanhtoan;
 import com.bb.quanlycc.Model.apartment;
+import com.bb.quanlycc.Model.config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +54,7 @@ public class TienNuocActivity extends AppCompatActivity  {
     }
     public void GetID(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "http://10.0.3.2:8000/api/user/"+account.getId();
+        String url = config.getUrl()+"/api/user/"+account.getId();
         StringRequest stringRequest =new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -111,7 +112,7 @@ public class TienNuocActivity extends AppCompatActivity  {
     }
     public void GetDSbill(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "http://10.0.3.2:8000/api/bill/apartment="+apartmentid; ;
+        String url = config.getUrl()+"/api/bill/apartment="+apartmentid; ;
         StringRequest stringRequest =new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override

@@ -2,24 +2,24 @@ package com.bb.quanlycc.Model;
 
 import java.io.Serializable;
 
-public class news implements Serializable {
-    public int ID;
+public class news implements Serializable  {
+    public String ID;
     public String Title;
     public String Status;
     public String date;
     public news(){}
-    public news(int ID, String title, String status, String date) {
+    public news(String ID, String title, String status, String date) {
         this.ID = ID;
         Title = title;
         Status = status;
         this.date = date;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
